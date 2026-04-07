@@ -53,5 +53,5 @@ jobs:
             cd site
             npm ci --omit=dev
             npm run build
-            pm2 restart cliniquepro || pm2 start npm --name cliniquepro -- start
+            pm2 restart cliniquepro || PORT=3500 pm2 start npm --name cliniquepro -- start
             pm2 save

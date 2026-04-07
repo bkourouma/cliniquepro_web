@@ -48,7 +48,7 @@ npm ci
 npm run build
 
 echo "==> Starting app with PM2..."
-pm2 start npm --name cliniquepro -- start
+PORT=3500 pm2 start npm --name cliniquepro -- start
 pm2 save
 
 echo "==> Configuring nginx..."
@@ -59,5 +59,5 @@ sudo nginx -t && sudo systemctl reload nginx
 
 echo ""
 echo "==> Setup complete!"
-echo "    App running on port 3000 behind nginx."
+echo "    App running on port 3500 behind nginx."
 echo "    Next step: add your SSH public key to GitHub Actions secrets (see README)."
