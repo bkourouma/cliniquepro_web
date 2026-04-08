@@ -48,10 +48,10 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
           script: |
-            cd /var/www/cliniquepro
+            cd ~/cliniquepro-web
             git pull origin main
             cd site
             npm ci --omit=dev
             npm run build
-            pm2 restart cliniquepro || PORT=3500 pm2 start npm --name cliniquepro -- start
+            pm2 restart cliniquepro-web || PORT=3500 pm2 start npm --name cliniquepro-web -- start
             pm2 save
